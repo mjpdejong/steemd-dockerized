@@ -31,3 +31,6 @@ EXPOSE ${rpc_port}
 # Specify the entry point.
 WORKDIR /usr/local/steem
 ENTRYPOINT ["./entrypoint.sh"]
+
+# Clean up APT when done.
+RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
