@@ -9,5 +9,5 @@
 
 1. Build - `docker build -t steemd-dockerized .` There is a bunch of arguments available,
    please check `Dockerfile` for what is possible to overwrite.
-2. Run - `docker run -d -P -v $PATH/witness_node_data_dir:/steemdata/witness_node_data_dir --name steemd steemd-dockerized`
+2. Run - `docker run -d -P -v $PATH/witness_node_data_dir:/mnt/witness_node_data_dir --name steemd steemd-dockerized`
 3. You can see what is happening now by running `docker logs -f steemd`.
