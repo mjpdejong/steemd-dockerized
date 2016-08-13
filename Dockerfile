@@ -2,6 +2,7 @@ FROM ubuntu
 
 # Register arguments
 ARG cname_flags=-DENABLE_CONTENT_PATCHING=OFF
+ARG steemd_version=0.13.pre
 ARG rpc_port=8090
 
 # Install necessary packages
@@ -16,6 +17,7 @@ RUN apt-get update \
 WORKDIR /usr/local/steem
 RUN git clone https://github.com/steemit/steem src \
 &&	cd /usr/local/steem/src \
+&&	git checkout "v${steemd_version}" \
 &&	git submodule update --init --recursive \
 &&	cmake ${cname_flags} . \
 &&	make \
